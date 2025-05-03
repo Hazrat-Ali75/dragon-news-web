@@ -1,19 +1,22 @@
 import React from 'react'
 import Header from '../components/Header'
-import { Outlet, useNavigation } from 'react-router'
+import { Outlet, useLoaderData, useNavigation } from 'react-router'
 import LeftAside from '../homeLayout/LeftAside'
 import RightAside from '../homeLayout/RightAside'
 import LatestNews from '../components/LatestNews'
 import Navbar from '../components/Navbar'
 
 const RootLayout = () => {
+  
     const {state} = useNavigation();
+    const data = useLoaderData();
+
   return (
     <div>
       <header>
         <Header></Header>
         <div className='w-11/12 mx-auto mt-8'>
-          <LatestNews></LatestNews>
+          <LatestNews data={data}></LatestNews>
         </div>
         <nav className='w-11/12 mx-auto mt-3'>
           <Navbar></Navbar>

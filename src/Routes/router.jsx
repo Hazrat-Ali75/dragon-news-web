@@ -7,10 +7,12 @@ import Register from '../pages/Register'
 import AuthLayout from '../layouts/AuthLayout'
 import NewsDetails from '../pages/NewsDetails'
 import PrivateRoute from '../provider/PrivateRoute'
+import Error from '../pages/Error'
 
 export const router = createBrowserRouter([
   {
     path: '/',
+    loader : ()=> fetch('/news.json'),
     element: <RootLayout></RootLayout>,
     children: [
       {
@@ -19,7 +21,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/categories/:id',
-        loader: () => fetch('/public/news.json'),
+        loader: () => fetch('/news.json'),
         hydrateFallbackElement: (
           <div className='flex justify-center min-h-screen items-center'>
             <span className='loading loading-spinner text-error'></span>
@@ -45,7 +47,7 @@ export const router = createBrowserRouter([
   },
   {
     path: '/newsDetails/:id',
-    loader: () => fetch('../../public/news.json'),
+    loader: () => fetch('/news.json'),
     hydrateFallbackElement: (
       <div className='flex justify-center min-h-screen items-center'>
         <span className='loading loading-spinner text-error'></span>
@@ -56,5 +58,13 @@ export const router = createBrowserRouter([
         <NewsDetails></NewsDetails>
       </PrivateRoute>
     )
+  },
+  {
+    path : "/about",
+    element : <Error></Error>
+  },
+  {
+    path : "/career",
+    element : <Error></Error>
   }
 ])

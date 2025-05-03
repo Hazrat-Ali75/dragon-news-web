@@ -1,7 +1,7 @@
 import React, { use } from 'react'
 import { NavLink } from 'react-router'
 
-const categoriesPromise = fetch('../../public/categories.json').then(res =>
+const categoriesPromise = fetch('/categories.json').then(res =>
   res.json()
 )
 const Categories = () => {
