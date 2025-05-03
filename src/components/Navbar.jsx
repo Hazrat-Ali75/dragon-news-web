@@ -17,11 +17,11 @@ const Navbar = () => {
   return (
     <div className='flex justify-between items-center'>
       <div>{user && user.email}</div>
-      <div className='flex gap-4 text-gray-400'>
+      <nav className='flex gap-4 text-gray-400'>
         <NavLink to='/'>Home</NavLink>
         <NavLink to='/about'>About</NavLink>
         <NavLink to='/career'>Career</NavLink>
-      </div>
+      </nav>
       <div className='flex items-center gap-2'>
         <img className='cursor-pointer w-11 h-11 rounded-full' src={`${user ? user.photoURL: userIcon}`} alt='' />
         {user ? (

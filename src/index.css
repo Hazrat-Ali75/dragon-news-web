@@ -13,6 +13,9 @@
   --color-secondary: teal;
 }
 
+nav a.active{
+  border-bottom : 2px solid red;
+}
 
 a.active.cat{
   background: gainsboro;
